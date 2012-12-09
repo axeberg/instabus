@@ -56,14 +56,14 @@ Ext.define("Instabus.view.Main", {
                       config: {
                         proxy: {
                               type: 'ajax',
-                              url: 'http://search.twitter.com/search.json',
+                              url: 'https://api.trafiklab.se/samtrafiken/resrobot/FindLocation.json?apiVersion=2.1&coordSys=RT90&key=2ba8cd705bc13f1b4cd41956aaab73d9',
                               reader: {
                                 type: 'json',
-                                rootProperty: 'results'
+                                rootProperty: 'findlocationresult'
                               }
                             },
                             resultsHeight: 100,
-                        needleKey: 'q',
+                        needleKey: 'from',
                         labelKey: 'text',
                       }
                     },

@@ -25,9 +25,8 @@ Ext.define("Instabus.view.BrowseBookmarkContainer", {
         align: 'right',
         iconMask: true,
         text: 'Edit',
-        handler: function() {
-          var selection = Ext.getCmp('bookmarklist').getSelection();
-          Ext.StoreManager.get('BookMarkStore').remove(selection[0]);
+        listeners: {
+          tap: { fn: this.onEditButtonTap, scope: this }
         }
       };
 
@@ -45,6 +44,7 @@ Ext.define("Instabus.view.BrowseBookmarkContainer", {
 
       var resultList = {
         xtype: 'bookmarklist',
+        id: 'bookmarks',
         store: Ext.getStore('BookmarkStore'),
         listeners: {
           itemtap: { fn: this.onItemTap, scope: this },
@@ -55,8 +55,13 @@ Ext.define("Instabus.view.BrowseBookmarkContainer", {
       this.add([topToolBar, resultList]);
     },
 
+    onEditButtonTap: function (record) {
+      this.fireEvent('editBookMarkList', this, record);
+    },
+
     onItemTap: function (list, record, target, index, evt, options) {
       console.log('tapped ' + record);
+      this.fireEvent('singleView', this, record);
     },
 
     onItemSwipe: function (dataView, index, target, record) {
