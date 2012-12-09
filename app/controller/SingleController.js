@@ -25,7 +25,8 @@ Ext.define('Instabus.controller.SingleController', {
   },
 
   renderMaps: function() {
-    alert('No maps yet');
+    mapView = Ext.create("Instabus.view.Map", {});
+    Ext.Viewport.animateActiveItem(mapView, { type: 'slide', direction: 'left'});
   }
 
 })

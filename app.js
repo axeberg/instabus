@@ -1,9 +1,9 @@
 Ext.application({
     name: 'Instabus',
 
-    models:      ['BookmarkModel', 'ListModel'],
-    stores:      ['BookmarkStore', 'ListStore'],
-    views:       ['Main', 'ListContainer', 'List', 'Reminder', 'Ticket', 'Single', 'AddBookmark', 'BrowseBookmark'],
+    models:      ['BookmarkModel', 'ListModel', 'MapModel'],
+    stores:      ['BookmarkStore', 'ListStore', 'MapStore'],
+    views:       ['Main', 'ListContainer', 'List', 'Reminder', 'Ticket', 'Single', 'AddBookmark', 'BrowseBookmarkContainer', 'BrowseBookmark', 'Map'],
     controllers: ['MainController', 'BrowseBookmarkController', 'ListController', 'SingleController'],
 
     icon: {
@@ -17,11 +17,6 @@ Ext.application({
 
     startupImage: {
         '320x460': 'resources/startup/320x460.jpg',
-        '640x920': 'resources/startup/640x920.png',
-        '768x1004': 'resources/startup/768x1004.png',
-        '748x1024': 'resources/startup/748x1024.png',
-        '1536x2008': 'resources/startup/1536x2008.png',
-        '1496x2048': 'resources/startup/1496x2048.png'
     },
 
     launch: function() {

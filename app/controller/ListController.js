@@ -2,44 +2,45 @@ Ext.define('Instabus.controller.ListController', {
   extend: 'Ext.app.Controller',
 
   config: {
+
     refs: {
-      pricesButton: "button[action=showPrices]",
-      listContainer: "listcontainer",
-      singlecontainer: "singlecontainer",
+      pricesButton: 'button[action=showPrices]',
+      listContainer: 'listcontainer',
+      singleContainer: 'singlecontainer',
+      pricePicker: 'pricepicker',
     },
 
     control: {
 
       listContainer: {
-        singleView: "renderSingleView"
+        singleView: 'renderSingleView',
+        pricePicker: 'showPricePicker',
+        modalView: 'renderModal',
       },
-
-      pricesButton: {
-        tap: "showPrices"
-      }
 
     }
 
   },
 
   renderSingleView: function() {
-    singleView = Ext.create("Instabus.view.Single", {});
+    singleView = Ext.create('Instabus.view.Single', {});
     Ext.Viewport.animateActiveItem(singleView, { type: 'slide', direction: 'left'});
   },
 
+  renderModal: function() {
+    console.log('render modal');
+  },
 
-  showPrices: function() {
+  showPricePicker: function(pricePicker) {
   },
 
   launch: function () {
     this.callParent(arguments);
-    Ext.getStore("ListStore").load();
-    console.log("launch");
+    Ext.getStore('ListStore').load();
   },
 
   init: function () {
     this.callParent(arguments);
-    console.log("init");
   }
 
 })

@@ -1,58 +1,13 @@
-Ext.define("Instabus.view.BrowseBookmark", {
-    extend: 'Ext.dataview.List',
-
-    requires: [
-      'Ext.dataview.List'
-    ],
+Ext.define('Instabus.view.BrowseBookmark', {
+    extend: 'Ext.List',
+    alias: 'widget.bookmarklist',
 
     config: {
-      items: [
-        {
-          loadingText: "Loading Notes...",
-          emptyText: '</pre><div class="notes-list-empty-text">No notes found.</div><pre>',
-          onItemDisclosure: true,
-          itemTpl: '</pre><div class="list-item-title">{title}</div><div class="list-item-narrative">{narrative}</div><pre>',
-          styleHtmlContent: true,
-        },
-      ]
+      loadingText: 'Loading Bookmarks...',
+      emptyText: '<div class=\'notes-list-empty-text\'>No bookmarks yet.</div>',
+      selectable: true,
+      itemTpl: '<div class=\'list-item-bookmark-title\'>{title}</div><div class=\'list-item-from\'>From: {from}</div><div class=\'list-item-to\'>To: {to}</div><div class=\'list-item-travel-time-total\'>Total travel time: {travel_time_total}</div><div class=\'list-item-bookmark-details\'>{details}</div>',
+
     },
-      initialize: function() {
 
-      var notesList = {
-          store: Ext.getStore("Notes"),
-          listeners: {
-              disclose: { fn: this.onNotesListDisclose, scope: this }
-          }
-      };
-
-
-      var backButton = {
-        action: 'backButton',
-        align: 'left',
-        iconMask: true,
-        text: 'Back',
-        ui: 'back',
-      };
-
-      var editButton = {
-        action: 'editButton',
-        align: 'right',
-        text: 'Edit',
-        iconMask: true,
-      };
-
-      var topToolBar = {
-        docked: 'top',
-        title: 'Bookmarks',
-        xtype: 'toolbar',
-        items: [
-          backButton,
-          {
-            xtype: 'spacer',
-          }, editButton
-        ]
-      };
-
-      this.add([topToolBar]);
-    }
 });

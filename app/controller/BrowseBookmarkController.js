@@ -4,10 +4,12 @@ Ext.define('Instabus.controller.BrowseBookmarkController', {
   config: {
 
     refs: {
-      backButton : "button[action=backButton]",
-      editButton : "button[action=editButton]"      
+      bookmarkContainer: 'bookmarkcontainer',
+      backButton: "button[action=backButton]",
+      editButton: "button[action=editButton]",
+
     },
-    
+
     control: {
       editButton: {
         tap: "edit"
@@ -15,7 +17,8 @@ Ext.define('Instabus.controller.BrowseBookmarkController', {
       backButton: {
         tap: "back"
       }
-    }
+    },
+
   },
 
   back: function() {
@@ -23,8 +26,13 @@ Ext.define('Instabus.controller.BrowseBookmarkController', {
     Ext.Viewport.animateActiveItem(mainView, { type: 'slide', direction: 'right'});
   },
 
-  edit: function() {
-    console.log('Tapped edit');    
+  launch: function () {
+    this.callParent(arguments);
+    Ext.getStore('BookmarkStore').load();
+  },
+
+  init: function () {
+    this.callParent(arguments);
   }
-  
-})
+
+});

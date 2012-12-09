@@ -6,7 +6,9 @@ Ext.define("Instabus.model.ListModel", {
             { name: 'id', type: 'int' },
             { name: 'departure', type: 'string' },
             { name: 'travel_time', type: 'string' },
-            { name: 'details', type: 'string' }
+            { name: 'details', type: 'string' },
+            { name: 'info', type: 'string' },
+            { name: 'price', type: 'string' }
         ]
     }
 });

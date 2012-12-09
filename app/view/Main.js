@@ -8,6 +8,7 @@ Ext.define("Instabus.view.Main", {
     ],
 
     config: {
+      xtype: 'MainView',
       fullscreen: true,
       layout: {
         type: 'card',
@@ -15,8 +16,8 @@ Ext.define("Instabus.view.Main", {
     },
 
     initialize: function() {
-      
-      this.callParent(arguments);      
+
+      this.callParent(arguments);
 
       var bookmarkButton = {
         align: 'right',
@@ -97,7 +98,7 @@ Ext.define("Instabus.view.Main", {
             text: 'Take me there',
             ui: 'confirm',
             height: 45,
-            action: 'displayAlternatives'            
+            action: 'displayAlternatives'
           }
         ]
       }

@@ -33,7 +33,13 @@ Ext.define("Instabus.view.Single", {
         ]
       };
 
-      this.add([topToolBar]);
+      var examplePanel = {
+        xtype: 'panel',
+        html: '<div class=\'list-item-departure\'>Walking</div><div class=\'list-item-details\'>From: Ringgatan 15<br/> To: Malmö Värnhem<br/></div><hr/><div class=\'list-item-departure\'>Bus number 3</div><div class=\'list-item-details\'>From: Malmö Värnhem<br/> To: Malmö Central<br/> Toward: Malmö C<br/></div><hr/>',
+        styleHtmlContent: true,
+      };
+
+      this.add([topToolBar, examplePanel]);
     },
 
 });

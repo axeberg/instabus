@@ -20,7 +20,7 @@ Ext.define('Instabus.controller.MainController', {
   },
 
   renderBookMarks: function() {
-    viewBookmarkView = Ext.create("Instabus.view.BrowseBookmark", {});
+    viewBookmarkView = Ext.create("Instabus.view.BrowseBookmarkContainer", {});
     Ext.Viewport.animateActiveItem(viewBookmarkView, { type: 'slide', direction: 'left'});
   },
 
