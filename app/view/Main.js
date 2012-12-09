@@ -2,6 +2,7 @@ Ext.define("Instabus.view.Main", {
     extend: 'Ext.Panel',
 
     requires: [
+      'Ext.AutocompleteField',
       'Ext.Toolbar',
       'Ext.form.FieldSet',
       'Ext.field.Text'
@@ -45,15 +46,26 @@ Ext.define("Instabus.view.Main", {
             items: [
               {
                 xtype: 'textfield',
-                autoCaptialize: true,
-                clearIcon: true,
                 component: {
                   xtype: 'container',
                   layout: 'hbox',
                   items: [
                     {
-                      xtype: 'textfield',
-                      flex: 5,
+                      xtype: 'autocompletefield',
+                      value: '',
+                      config: {
+                        proxy: {
+                              type: 'ajax',
+                              url: 'http://search.twitter.com/search.json',
+                              reader: {
+                                type: 'json',
+                                rootProperty: 'results'
+                              }
+                            },
+                            resultsHeight: 100,
+                        needleKey: 'q',
+                        labelKey: 'text',
+                      }
                     },
                     {
                       xtype: 'button',
@@ -79,8 +91,21 @@ Ext.define("Instabus.view.Main", {
                   layout: 'hbox',
                   items: [
                     {
-                      xtype: 'textfield',
-                      flex: 5,
+                      xtype: 'autocompletefield',
+                      value: '',
+                      config: {
+                        proxy: {
+                              type: 'ajax',
+                              url: 'https://api.example.com/search',
+                              reader: {
+                                type: 'json',
+                                rootProperty: 'results'
+                              }
+                            },
+                            resultsHeight: 300,
+                        needleKey: 'term',
+                        labelKey: 'name',
+                      }
                     },
                     {
                       xtype: 'button',
