@@ -4,7 +4,7 @@ Ext.application({
     models:      ['BookmarkModel', 'ListModel', 'MapModel'],
     stores:      ['BookmarkStore', 'ListStore', 'MapStore'],
     views:       ['Main', 'ListContainer', 'List', 'Reminder', 'Ticket', 'Single', 'AddBookmark', 'BrowseBookmarkContainer', 'BrowseBookmark', 'Map'],
-    controllers: ['MainController', 'BrowseBookmarkController', 'ListController', 'SingleController', 'MapController'],
+    controllers: ['MainController', 'BrowseBookmarkController', 'ListController', 'SingleController', 'MapController', 'TicketController'],
 
     icon: {
         '57': 'resources/icons/Icon.png',

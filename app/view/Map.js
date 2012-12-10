@@ -41,7 +41,6 @@ Ext.define("Instabus.view.Map", {
       var mapElement = {
         xtype: 'map',
           useCurrentLocation: true,
-//          height: 400,
           fullscreen: true,
           layout: {
             type: 'fit',

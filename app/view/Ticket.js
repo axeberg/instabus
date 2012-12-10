@@ -12,7 +12,7 @@ Ext.define("Instabus.view.Ticket", {
       this.callParent(arguments);
 
       var backButton = {
-        action: 'back',
+        action: 'back3Button',
         align: 'left',
         iconMask: true,
         text: 'Back',
