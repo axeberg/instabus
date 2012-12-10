@@ -4,6 +4,7 @@ Ext.define('Instabus.controller.ListController', {
   config: {
 
     refs: {
+      backButton: 'button[action=backButton]',
       pricesButton: 'button[action=showPrices]',
       listContainer: 'listcontainer',
       singleContainer: 'singlecontainer',
@@ -13,9 +14,12 @@ Ext.define('Instabus.controller.ListController', {
     control: {
 
       listContainer: {
-        singleView: 'renderSingleView',
-        pricePicker: 'showPricePicker',
+        backButton: {
+          tap: 'renderMainView'
+        },
         modalView: 'renderModal',
+        pricePicker: 'showPricePicker',
+        singleView: 'renderSingleView'
       },
 
     }
@@ -25,6 +29,11 @@ Ext.define('Instabus.controller.ListController', {
   renderSingleView: function() {
     singleView = Ext.create('Instabus.view.Single', {});
     Ext.Viewport.animateActiveItem(singleView, { type: 'slide', direction: 'left'});
+  },
+
+  renderMainView: function() {
+    mainView = Ext.create('Instabus.view.Main', {});
+    Ext.Viewport.animateActiveItem(mainView, { type: 'slide', direction: 'right'});
   },
 
   renderModal: function() {

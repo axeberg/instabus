@@ -6,12 +6,16 @@ Ext.define('Instabus.controller.MainController', {
     refs: {
       mainView: "#MainView",
       viewBookMarksButton : "button[action=viewBookMarks]",
+      mapViewButton : "button[action=showMap]",
       submitButton : "button[action=displayAlternatives]",
     },
 
     control: {
       viewBookMarksButton: {
         tap: "renderBookMarks"
+      },
+      mapViewButton: {
+        tap: "renderMapView"
       },
       submitButton: {
         tap: "renderResults"
@@ -22,6 +26,11 @@ Ext.define('Instabus.controller.MainController', {
   renderBookMarks: function() {
     viewBookmarkView = Ext.create("Instabus.view.BrowseBookmarkContainer", {});
     Ext.Viewport.animateActiveItem(viewBookmarkView, { type: 'slide', direction: 'left'});
+  },
+
+  renderMapView: function() {
+    viewMapView = Ext.create("Instabus.view.Map", {});
+    Ext.Viewport.animateActiveItem(viewMapView, { type: 'slide', direction: 'left'});
   },
 
   renderResults: function() {

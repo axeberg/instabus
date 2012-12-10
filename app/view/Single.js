@@ -40,7 +40,7 @@ Ext.define("Instabus.view.Single", {
         docked: 'bottom',
         ui: 'confirm',
         height: 45,
-        text: 'Buy ticket for this item'
+        text: 'Buy ticket for this item',
       };
 
       var examplePanel = {

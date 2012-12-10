@@ -19,18 +19,11 @@ Ext.define("Instabus.view.Map", {
       this.callParent(arguments);
 
       var backButton = {
-        action: 'back',
+        action: 'back2Button',
         align: 'left',
         iconMask: true,
         text: 'Back',
         ui: 'back',
-      };
-
-      var mapButton = {
-        action: 'displayMap',
-        align: 'right',
-        iconCls: 'maps',
-        iconMask: true,
       };
 
       var topToolBar = {
@@ -41,14 +34,18 @@ Ext.define("Instabus.view.Map", {
           backButton,
           {
             xtype: 'spacer',
-          }, mapButton
+          }
         ]
       };
 
       var mapElement = {
         xtype: 'map',
           useCurrentLocation: true,
-          height: 400,
+//          height: 400,
+          fullscreen: true,
+          layout: {
+            type: 'fit',
+          },
           mapOptions: {
             zoom: 17,
             navigationControl: true,
@@ -71,8 +68,9 @@ Ext.define("Instabus.view.Map", {
 
                 new google.maps.Marker({
                     position: new google.maps.LatLng(this._geo.getLatitude(), this._geo.getLongitude()),
-                    map: map
+                    map: map,
                 });
+
             }
           }
       };

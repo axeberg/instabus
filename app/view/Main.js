@@ -112,6 +112,7 @@ Ext.define("Instabus.view.Main", {
                       flex: 1,
                       iconCls: 'maps',
                       iconMask: true,
+                      action: 'showMap'
                     },
                   ]
                 }
